@@ -1,2 +1,2 @@
 # GSI-Bergamo
-GSI traffic analysis of Bergamo region, using data taken from municipality surveys.
+GSI python analysis of Bergamo region, using data taken from municipality surveys.
