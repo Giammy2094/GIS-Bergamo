@@ -37,19 +37,40 @@ province.plot(column='POLYGON_NM', ax=ax)
 ax.set_xlim(9.39, 11)
 ax.set_ylim(45.4, 46.2)
 
-#read road shapefile
+#read roads shapefile
 roads = gpd.read_file('roads.shp')
 roads = roads.drop(0)
 roads.head()
 
-bounds = roads.bounds
-bounds
+#set roads bounds
+roads_bounds = roads.bounds
+roads_bounds
 
-roads = roads[((bounds['minx'] < 11) & (bounds['maxx'] > 9) & (bounds['miny'] < 46.2) & (bounds['maxy'] > 45.3))]
+roads = roads[((roads_bounds['minx'] < 11) & (roads_bounds['maxx'] > 9) & (roads_bounds['miny'] < 46.2) & (roads_bounds['maxy'] > 45.3))]
 roads = roads[roads['id'] != 'Water bodies']
 
+#plot roads on province
 fig, ax = plt.subplots(figsize=(14,14), subplot_kw={'aspect':'equal'})
 roads.plot(ax=ax, color="black", linewidth=0.4)
+province.plot(column='POLYGON_NM', ax=ax)
+ax.set_xlim(9.39, 10.27)
+ax.set_ylim(45.4, 46.1)
+
+#read water shapefile
+water = gpd.read_file('water.shp')
+water = water.drop(0)
+water.head()
+
+#set water bounds
+water_bounds = water.bounds
+water_bounds
+
+water = water[((water_bounds['minx'] < 11) & (water_bounds['maxx'] > 9) & (water_bounds['miny'] < 46.2) & (water_bounds['maxy'] > 45.3))]
+water = water[water['id'] != 'Water bodies']
+
+fig, ax = plt.subplots(figsize=(100,100), subplot_kw={'aspect':'equal'})
+roads.plot(ax=ax, color='black', linewidth=0.4)
+water.plot(ax=ax, color='blue')
 province.plot(column='POLYGON_NM', ax=ax)
 ax.set_xlim(9.39, 10.27)
 ax.set_ylim(45.4, 46.1)
