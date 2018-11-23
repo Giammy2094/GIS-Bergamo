@@ -10,7 +10,6 @@ os.chdir('C:/Users/gianmarco/Desktop/UNI/Management Engineering/Transportation E
 #read shapefile
 province = gpd.read_file('bergamo_municipality_region.shp')
 #drop null
-province = province.drop(0)
 province.head()
 province.plot()
 
@@ -39,7 +38,6 @@ ax.set_ylim(45.4, 46.1)
 
 #read roads shapefile
 roads = gpd.read_file('roads.shp')
-roads = roads.drop(0)
 roads.head()
 
 #set roads bounds
@@ -58,7 +56,6 @@ ax.set_ylim(45.4, 46.1)
 
 #read water shapefile
 water = gpd.read_file('water.shp')
-water = water.drop(0)
 water.head()
 
 #set water bounds
@@ -78,7 +75,6 @@ ax.set_ylim(45.4, 46.1)
 
 #read railways shapefile
 rail = gpd.read_file('railways.shp')
-rail = rail.drop(0)
 rail.head()
 
 #set railways bounds
