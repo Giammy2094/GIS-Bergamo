@@ -13,7 +13,7 @@ import pandas as pd
 from shapely.geometry import Point
 
 #change directory
-os.chdir('C:/Users/gianmarco/Desktop/UNI/Management Engineering/Transportation Economics Management/Project/shape')
+os.chdir('C:/Users/Project/shape')
 #read shapefile
 province = gpd.read_file('bergamo_municipality_region.shp')
 province.crs
